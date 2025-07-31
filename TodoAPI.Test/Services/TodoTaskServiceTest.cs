@@ -56,15 +56,15 @@ public class TodoTaskServiceTest
     {
         // Arrange
         var newTask = new TodoTaskAddDto { Title = "New Task" };
-        var expectedId = 101;
+        var expectedTodoTaskId = 101;
 
-        _mockTodoTaskService.Setup(s => s.AddTodoTask(newTask)).ReturnsAsync(expectedId);
+        _mockTodoTaskService.Setup(s => s.AddTodoTask(newTask)).ReturnsAsync(expectedTodoTaskId);
 
         // Act
         var result = await _mockTodoTaskService.Object.AddTodoTask(newTask);
 
         // Assert
-        Assert.Equal(expectedId, result);
+        Assert.Equal(expectedTodoTaskId, result);
     }
 
     [Fact]

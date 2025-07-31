@@ -7,49 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="814bf7b4-8972-4cce-b2d8-55522adef0e9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.TodoAPI/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.TodoAPI/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.TodoAPI/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.TodoAPI/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.TodoAPI/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI.Test/Services/TodoSubtaskServiceTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI.Test/Services/TodoTaskServiceTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI.Test/TodoAPI.Test.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Controllers/TodoSubaskController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Controllers/TodoTaskController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/DBContext/AppDbContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/DTOs/TodoSubtasks/TodoSubtaskAddDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/DTOs/TodoSubtasks/TodoSubtaskReadDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/DTOs/TodoSubtasks/TodoSubtaskUpdateDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/DTOs/TodoTasks/TodoTaskAddDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/DTOs/TodoTasks/TodoTaskReadDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/DTOs/TodoTasks/TodoTaskUpdateDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Entities/TodoSubtask.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Entities/TodoTask.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Infrastructure/Helpers/ExceptionHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Middlewares/ExceptionHandlingMiddleware.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Repositories/Base/BaseRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Repositories/Base/IBaseRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Repositories/TodoSubtasks/ITodoSubtaskRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Repositories/TodoSubtasks/TodoSubtaskRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Repositories/TodoTasks/ITodoTaskRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Repositories/TodoTasks/TodoTaskRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Services/TodoSubtasks/ITodoSubtaskService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Services/TodoSubtasks/TodoSubtaskService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Services/TodoTasks/ITodoTaskService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/Services/TodoTasks/TodoTaskService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/TodoAPI.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/TodoAPI.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/UnitOfWork/IUnitOfWork.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/UnitOfWork/UnitOfWork.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/appsettings.Development.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI/appsettings.json" afterDir="false" />
-    </list>
+    <list default="true" id="814bf7b4-8972-4cce-b2d8-55522adef0e9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,7 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1753985185076</updated>
       <workItem from="1753985186814" duration="132000" />
-      <workItem from="1753985473439" duration="2192000" />
+      <workItem from="1753985473439" duration="2500000" />
     </task>
     <servers />
   </component>

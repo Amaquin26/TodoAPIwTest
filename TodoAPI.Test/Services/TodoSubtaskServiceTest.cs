@@ -33,6 +33,26 @@ public class TodoSubtaskServiceTest
         Assert.NotNull(results);
         Assert.Equal(2, results.Count());
     }
-    
-    
+
+    [Fact]
+    public async Task GetAllTodoSubtaskByTaskId_ShouldReturnListOfTodoSubtasks()
+    {
+        // Arrange
+        int expectedTodoSubtaskId = 1;
+        var expectedTodoSubtasks = new List<TodoSubtaskReadDto>
+        {
+            new TodoSubtaskReadDto { Id = 1, TodoTaskId = 1, Name = "TodoSubtask 1" },
+            new TodoSubtaskReadDto { Id = 2, TodoTaskId = 1, Name = "TodoSubtask 2" }
+        };
+
+        _mockTodoSubtaskTaskService.Setup(s => s.GetAllTodoSubtaskByTaskId((expectedTodoSubtaskId)))
+            .ReturnsAsync(expectedTodoSubtasks);
+        
+        // Act
+        var result = await _mockTodoSubtaskTaskService.Object.GetAllTodoSubtaskByTaskId((expectedTodoSubtaskId));
+        
+        // Assert
+        Assert.NotNull(result);
+        Assert.Equal(2, result.Count());
+    }
 }
