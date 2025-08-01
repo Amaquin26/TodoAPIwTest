@@ -3,5 +3,6 @@
   &lt;Or&gt;&#xD;
     &lt;ProjectFile&gt;6C1D9CA9-6532-4743-899A-F65A53D2F815/d:Services/f:TodoTaskServiceTest.cs&lt;/ProjectFile&gt;&#xD;
     &lt;ProjectFile&gt;6C1D9CA9-6532-4743-899A-F65A53D2F815/d:Services/f:TodoSubtaskServiceTest.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;6C1D9CA9-6532-4743-899A-F65A53D2F815/d:Controllers/f:TodoTaskControllerTest.cs&lt;/ProjectFile&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

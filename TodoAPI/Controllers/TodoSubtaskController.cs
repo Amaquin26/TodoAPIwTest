@@ -9,11 +9,11 @@ namespace TodoAPI.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class TodoSubaskController: ControllerBase
+public class TodoSubtaskController: ControllerBase
 {
     private readonly ITodoSubtaskService _todoSubtaskService;
     
-    public TodoSubaskController(ITodoSubtaskService todoSubtaskService)
+    public TodoSubtaskController(ITodoSubtaskService todoSubtaskService)
     {
         _todoSubtaskService = todoSubtaskService;
     }
@@ -26,7 +26,7 @@ public class TodoSubaskController: ControllerBase
     }
     
     [HttpGet("task/{todoTaskId:int}")]
-    public async Task<ActionResult<IEnumerable<TodoSubtaskReadDto>>> GetAllTodoSubtask(int todoTaskId)
+    public async Task<ActionResult<IEnumerable<TodoSubtaskReadDto>>> GetAllTodoSubtaskByTaskId(int todoTaskId)
     {
         var todoSubtasks = await _todoSubtaskService.GetAllTodoSubtaskByTaskId(todoTaskId);
         return Ok(todoSubtasks);

@@ -1,7 +1,6 @@
 ﻿using TodoAPI.Services.TodoTasks;
 using TodoAPI.DTOs.TodoTasks;
 using Moq;
-using Xunit;
 
 namespace TodoAPI.Test.Services;
 
@@ -18,13 +17,13 @@ public class TodoTaskServiceTest
     public async Task GetAllTodoTask_ShouldReturnListOfTodoTasks()
     {
         // Arrange
-        var expectedTasks = new List<TodoTaskReadDto>
+        var todoTaskList = new List<TodoTaskReadDto>
         {
             new TodoTaskReadDto { Id = 1, Title = "Task 1", Description = "Task 1 Description"},
             new TodoTaskReadDto { Id = 2, Title = "Task 2", Description = "Task 2 Description" }
         };
 
-        _mockTodoTaskService.Setup(s => s.GetAllTodoTask()).ReturnsAsync(expectedTasks);
+        _mockTodoTaskService.Setup(s => s.GetAllTodoTask()).ReturnsAsync(todoTaskList);
 
         // Act
         var result = await _mockTodoTaskService.Object.GetAllTodoTask();
@@ -38,30 +37,30 @@ public class TodoTaskServiceTest
     public async Task GetTodoTaskById_ShouldReturnCorrectTodoTask()
     {
         // Arrange
-        var taskId = 1;
-        var expectedTask = new TodoTaskReadDto { Id = taskId, Title = "Sample Task", Description = " Sample Task Description" };
+        var todoTaskId = 1;
+        var todoTask = new TodoTaskReadDto { Id = todoTaskId, Title = "Sample Task", Description = " Sample Task Description" };
 
-        _mockTodoTaskService.Setup(s => s.GetTodoTaskById(taskId)).ReturnsAsync(expectedTask);
+        _mockTodoTaskService.Setup(s => s.GetTodoTaskById(todoTaskId)).ReturnsAsync(todoTask);
 
         // Act
-        var result = await _mockTodoTaskService.Object.GetTodoTaskById(taskId);
+        var result = await _mockTodoTaskService.Object.GetTodoTaskById(todoTaskId);
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(taskId, result?.Id);
+        Assert.Equal(todoTaskId, result?.Id);
     }
 
     [Fact]
     public async Task AddTodoTask_ShouldReturnNewId()
     {
         // Arrange
-        var newTask = new TodoTaskAddDto { Title = "New Task" };
+        var todoTaskAddDto = new TodoTaskAddDto { Title = "New Todo Task" };
         var expectedTodoTaskId = 101;
 
-        _mockTodoTaskService.Setup(s => s.AddTodoTask(newTask)).ReturnsAsync(expectedTodoTaskId);
+        _mockTodoTaskService.Setup(s => s.AddTodoTask(todoTaskAddDto)).ReturnsAsync(expectedTodoTaskId);
 
         // Act
-        var result = await _mockTodoTaskService.Object.AddTodoTask(newTask);
+        var result = await _mockTodoTaskService.Object.AddTodoTask(todoTaskAddDto);
 
         // Assert
         Assert.Equal(expectedTodoTaskId, result);
@@ -71,23 +70,23 @@ public class TodoTaskServiceTest
     public async Task UpdateTodoTask_ShouldNotThrow()
     {
         // Arrange
-        var updateDto = new TodoTaskUpdateDto { Id = 1, Title = "Updated Task" };
+        var todoTaskUpdateDto = new TodoTaskUpdateDto { Id = 1, Title = "Updated Task" };
 
-        _mockTodoTaskService.Setup(s => s.UpdateTodoTask(updateDto)).Returns(Task.CompletedTask);
+        _mockTodoTaskService.Setup(s => s.UpdateTodoTask(todoTaskUpdateDto)).Returns(Task.CompletedTask);
 
         // Act & Assert
-        await _mockTodoTaskService.Object.UpdateTodoTask(updateDto); // if no exception, test passes
+        await _mockTodoTaskService.Object.UpdateTodoTask(todoTaskUpdateDto); // if no exception, test passes
     }
 
     [Fact]
     public async Task DeleteTodoTask_ShouldNotThrow()
     {
         // Arrange
-        var taskId = 1;
+        var todoTaskId = 1;
 
-        _mockTodoTaskService.Setup(s => s.DeleteTodoTask(taskId)).Returns(Task.CompletedTask);
+        _mockTodoTaskService.Setup(s => s.DeleteTodoTask(todoTaskId)).Returns(Task.CompletedTask);
 
         // Act & Assert
-        await _mockTodoTaskService.Object.DeleteTodoTask(taskId); // if no exception, test passes
+        await _mockTodoTaskService.Object.DeleteTodoTask(todoTaskId); // if no exception, test passes
     }
 }
