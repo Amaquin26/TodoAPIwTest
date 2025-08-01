@@ -8,15 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="814bf7b4-8972-4cce-b2d8-55522adef0e9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TodoAPI.Test/Controllers/TodoSubtaskControllerTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TodoAPI.Test/Controllers/TodoTaskControllerTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TodoAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TodoAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoAPI.Test/Services/TodoSubtaskServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoAPI.Test/Services/TodoSubtaskServiceTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoAPI.Test/Services/TodoTaskServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoAPI.Test/Services/TodoTaskServiceTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoAPI.Test/TodoAPI.Test.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TodoAPI.Test/TodoAPI.Test.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoAPI.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/TodoAPI.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoAPI/Controllers/TodoSubaskController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoAPI/Controllers/TodoSubtaskController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoAPI/Controllers/TodoTaskController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoAPI/Controllers/TodoTaskController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoAPI.Test/Controllers/TodoTaskControllerTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoAPI.Test/Controllers/TodoTaskControllerTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +127,7 @@
       <updated>1753985185076</updated>
       <workItem from="1753985186814" duration="132000" />
       <workItem from="1753985473439" duration="3102000" />
-      <workItem from="1754041706392" duration="14614000" />
+      <workItem from="1754041706392" duration="17116000" />
     </task>
     <servers />
   </component>

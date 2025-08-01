@@ -58,22 +58,6 @@ public class TodoTaskControllerTest
         Assert.Equal(todoTask, returnedTodoTask);
     }
 
-    /*[Fact]
-    public async Task GetTodoSubtaskById_ShouldThrowNotFoundException_WithNonExistentTodoTaskIdInput()
-    {
-        // Arrange
-        var todoTaskId = 102;
-        var todoTask = new TodoTaskReadDto { Id = 1, Title = "Sample Task", Description = "Sample Task Description" };
-        
-        _mockTodoTaskService.Setup(r => r.GetTodoTaskById(todoTaskId)).ReturnsAsync(todoTask);
-        
-        // Act
-        var result =  await _todoTaskController.GetTodoTaskById(todoTaskId);
-        
-        // Assert
-        Assert.IsType<NotFoundObjectResult>(result);
-    }*/
-
     [Fact]
     public async Task AddTodoTask_ShouldReturnNewId()
     {

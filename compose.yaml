@@ -1,6 +1,7 @@
 ﻿services:
-  todoapi:
-    build: .
+  webapi:
+    container_name: webapi
+    build: ./TodoAPI
     ports:
       - "5000:8080"
     environment:
@@ -9,6 +10,7 @@
     depends_on:
       - db
   db:
+    container_name: db
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
       SA_PASSWORD: "StrongPass123!"
