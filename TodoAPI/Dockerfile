@@ -1,23 +1,20 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
-USER $APP_UID
-WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
-
+﻿# Build stage
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["TodoAPI/TodoAPI.csproj", "TodoAPI/"]
-RUN dotnet restore "TodoAPI/TodoAPI.csproj"
-COPY . .
-WORKDIR "/src/TodoAPI"
-RUN dotnet build "./TodoAPI.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./TodoAPI.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+# Copy and restore
+COPY *.csproj ./
+RUN dotnet restore
 
-FROM base AS final
+# Copy the rest of the source and publish
+COPY . ./
+RUN dotnet publish -c Release -o /app/out
+
+# Runtime stage
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
-COPY --from=publish /app/publish .
+
+COPY --from=build /app/out ./
+
+EXPOSE 8080
 ENTRYPOINT ["dotnet", "TodoAPI.dll"]
