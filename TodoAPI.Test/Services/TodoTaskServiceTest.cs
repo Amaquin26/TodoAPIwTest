@@ -1,16 +1,24 @@
 ﻿using TodoAPI.Services.TodoTasks;
 using TodoAPI.DTOs.TodoTasks;
 using Moq;
+using TodoAPI.Entities;
+using TodoAPI.Infrastructure.Helpers;
+using TodoAPI.Repositories.TodoTasks;
+using TodoAPI.UnitOfWork;
 
 namespace TodoAPI.Test.Services;
 
 public class TodoTaskServiceTest
 {
     private readonly Mock<ITodoTaskService> _mockTodoTaskService;
+    private readonly Mock<ITodoTaskRepository> _mockTodoTaskRepository;
+    private readonly TodoTaskService _todoTaskService;
 
     public TodoTaskServiceTest()
     {
         _mockTodoTaskService = new Mock<ITodoTaskService>();
+        _mockTodoTaskRepository = new  Mock<ITodoTaskRepository>();
+        _todoTaskService = new TodoTaskService(_mockTodoTaskRepository.Object, new Mock<IUnitOfWork>().Object);
     }
 
     [Fact]
@@ -49,6 +57,23 @@ public class TodoTaskServiceTest
         Assert.NotNull(result);
         Assert.Equal(todoTaskId, result?.Id);
     }
+    
+    [Fact]
+    public async Task GetTodoTaskById_ShouldThrowKeyNotFoundException_WhenNotFound()
+    {
+        // Arrange
+        var todoTaskId = 999;
+
+        _mockTodoTaskRepository
+            .Setup(r => r.GetByIdAsync(todoTaskId))
+            .ReturnsAsync((TodoTask?)null);
+        
+        // Act & Assert
+        var ex = await Assert.ThrowsAsync<KeyNotFoundException>(() =>
+            _todoTaskService.GetTodoTaskById(todoTaskId));
+
+        Assert.Equal(ExceptionHelper.NotFound<TodoTask>(todoTaskId).Message, ex.Message);
+    }
 
     [Fact]
     public async Task AddTodoTask_ShouldReturnNewId()
@@ -77,6 +102,24 @@ public class TodoTaskServiceTest
         // Act & Assert
         await _mockTodoTaskService.Object.UpdateTodoTask(todoTaskUpdateDto); // if no exception, test passes
     }
+    
+    [Fact]
+    public async Task UpdateTodoTask_ShouldThrowKeyNotFoundException_WhenNotFound()
+    {
+        // Arrange
+        var todoTaskId = 999;
+        var todoTaskUpdateDto = new TodoTaskUpdateDto { Id = todoTaskId, Title = "Updated Task" };
+
+        _mockTodoTaskRepository
+            .Setup(r => r.GetByIdAsync(todoTaskId))
+            .ReturnsAsync((TodoTask?)null);
+        
+        // Act & Assert
+        var ex = await Assert.ThrowsAsync<KeyNotFoundException>(() =>
+            _todoTaskService.UpdateTodoTask(todoTaskUpdateDto));
+
+        Assert.Equal(ExceptionHelper.NotFound<TodoTask>(todoTaskId).Message, ex.Message);
+    }
 
     [Fact]
     public async Task DeleteTodoTask_ShouldNotThrow()
@@ -88,5 +131,22 @@ public class TodoTaskServiceTest
 
         // Act & Assert
         await _mockTodoTaskService.Object.DeleteTodoTask(todoTaskId); // if no exception, test passes
+    }
+    
+    [Fact]
+    public async Task DeleteTodoTask_ShouldThrowKeyNotFoundException_WhenNotFound()
+    {
+        // Arrange
+        var todoTaskId = 999;
+
+        _mockTodoTaskRepository
+            .Setup(r => r.GetByIdAsync(todoTaskId))
+            .ReturnsAsync((TodoTask?)null);
+        
+        // Act & Assert
+        var ex = await Assert.ThrowsAsync<KeyNotFoundException>(() =>
+            _todoTaskService.DeleteTodoTask(todoTaskId));
+
+        Assert.Equal(ExceptionHelper.NotFound<TodoTask>(todoTaskId).Message, ex.Message);
     }
 }

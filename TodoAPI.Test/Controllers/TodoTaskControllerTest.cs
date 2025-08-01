@@ -2,6 +2,8 @@
 using Moq;
 using TodoAPI.Controllers;
 using TodoAPI.DTOs.TodoTasks;
+using TodoAPI.Entities;
+using TodoAPI.Infrastructure.Helpers;
 using TodoAPI.Services.TodoTasks;
 
 namespace TodoAPI.Test.Controllers;
@@ -59,6 +61,21 @@ public class TodoTaskControllerTest
     }
 
     [Fact]
+    public async Task GetTodoTaskById_ShouldThrowKeyNotFoundException_WhenNotFound()
+    {
+        // Arrange
+        var todoTaskId = 1;
+
+        _mockTodoTaskService
+            .Setup(s => s.GetTodoTaskById(todoTaskId))
+            .ThrowsAsync(ExceptionHelper.NotFound<TodoTask>(todoTaskId));
+        
+        // Act & Assert
+        var exception = await Assert.ThrowsAsync<KeyNotFoundException>(() => _todoTaskController.GetTodoTaskById(todoTaskId));
+        Assert.Equal(ExceptionHelper.NotFound<TodoTask>(todoTaskId).Message, exception.Message);
+    }
+    
+    [Fact]
     public async Task AddTodoTask_ShouldReturnNewId()
     {
         // Arrange
@@ -92,6 +109,22 @@ public class TodoTaskControllerTest
         var resultObject = Assert.IsType<NoContentResult>(result);
         Assert.Equal(204, resultObject.StatusCode);
     }
+    
+    [Fact]
+    public async Task UpdateTodoTask_ShouldThrowKeyNotFoundException_WhenNotFound()
+    {
+        // Arrange
+        var todoTaskId = 101;
+        var todoTaskUpdateDto = new TodoTaskUpdateDto { Id = todoTaskId, Title = "New Todo Task", Description = "New Todo Task Description"};
+
+        _mockTodoTaskService
+            .Setup(s => s.UpdateTodoTask(todoTaskUpdateDto))
+            .ThrowsAsync(ExceptionHelper.NotFound<TodoTask>(todoTaskId));
+        
+        // Act & Assert
+        var exception = await Assert.ThrowsAsync<KeyNotFoundException>(() => _todoTaskController.UpdateTodoTask(todoTaskUpdateDto));
+        Assert.Equal(ExceptionHelper.NotFound<TodoTask>(todoTaskId).Message, exception.Message);
+    }
 
     [Fact]
     public async Task DeleteTodoTask_ShouldNotThrow()
@@ -107,5 +140,20 @@ public class TodoTaskControllerTest
         // Assert
         var resultObject = Assert.IsType<NoContentResult>(result);
         Assert.Equal(204, resultObject.StatusCode);
+    }
+    
+    [Fact]
+    public async Task DeleteTodoTask_ShouldThrowKeyNotFoundException_WhenNotFound()
+    {
+        // Arrange
+        var todoTaskId = 101;
+
+        _mockTodoTaskService
+            .Setup(s => s.DeleteTodoTask(todoTaskId))
+            .ThrowsAsync(ExceptionHelper.NotFound<TodoTask>(todoTaskId));
+        
+        // Act & Assert
+        var exception = await Assert.ThrowsAsync<KeyNotFoundException>(() => _todoTaskController.DeleteTodoTask(todoTaskId));
+        Assert.Equal(ExceptionHelper.NotFound<TodoTask>(todoTaskId).Message, exception.Message);
     }
 }

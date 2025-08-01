@@ -16,14 +16,14 @@ public class TodoTaskController: ControllerBase
     }
     
     [HttpGet]
-    public async Task<ActionResult> GetAllTodoTask()
+    public async Task<IActionResult> GetAllTodoTask()
     {
         var todoTasks = await _todoTaskService.GetAllTodoTask();
         return Ok(todoTasks);
     }
     
     [HttpGet("{id:int}", Name = "GetTodoTaskById")]
-    public async Task<ActionResult> GetTodoTaskById(int id)
+    public async Task<IActionResult> GetTodoTaskById(int id)
     {
         var todoTasks = await _todoTaskService.GetTodoTaskById(id);
         return Ok(todoTasks);
