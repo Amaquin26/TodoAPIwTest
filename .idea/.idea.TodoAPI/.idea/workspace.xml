@@ -9,10 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="814bf7b4-8972-4cce-b2d8-55522adef0e9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TodoAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TodoAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoAPI.Test/Controllers/TodoSubtaskControllerTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoAPI.Test/Controllers/TodoSubtaskControllerTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoAPI.Test/Controllers/TodoTaskControllerTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoAPI.Test/Controllers/TodoTaskControllerTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoAPI.Test/Services/TodoSubtaskServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoAPI.Test/Services/TodoSubtaskServiceTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodoAPI.Test/Services/TodoTaskServiceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoAPI.Test/Services/TodoTaskServiceTest.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +54,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -130,7 +127,7 @@
       <updated>1753985185076</updated>
       <workItem from="1753985186814" duration="132000" />
       <workItem from="1753985473439" duration="3102000" />
-      <workItem from="1754041706392" duration="20949000" />
+      <workItem from="1754041706392" duration="26033000" />
     </task>
     <servers />
   </component>
